@@ -107,6 +107,20 @@ font-size: 1.5rem;
 border:1px solid #808080;
 }
 
+
+/* Filter */
+.filter{
+  display:flex;
+  margin:1rem;
+  padding:1rem;
+  border-bottom:.1rem #c0c0c0 solid;
+  justify-content: space-between;
+}
+
+.filter div{
+  flex:1;
+}
+
 /* Footer */
 footer{
  display: flex;
