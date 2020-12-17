@@ -22,8 +22,9 @@ createOrder = (e) => {
          address : this.state.address , 
          cartItems : this.props.cartItems
     }
-    this.props.createOrder(order)
+    this.props.alertOrder(order);
 }
+
     render() {
         const {cartItems}=this.props;
         return (

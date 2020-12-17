@@ -14,8 +14,8 @@ class App extends React.Component{
     }; 
   }
 
-  createOrder = (order)=> {
-    alert("Need to save order for" + order.name)
+  alertOrder = (myorder)=> {
+    alert("Need to save order for" +myorder.name)
   }
   removeFromCart = (product) =>{
     const cartItems= this.state.cartItems.slice();
@@ -82,7 +82,7 @@ render(){
          <Products products={this.state.products}  addToCart={this.addToCart}/>
         </div>
         <div className="sidebar">
-         <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder ={this.createOrder } />
+         <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} alertOrder ={this.alertOrder} />
         </div>
       </div>
       </main>
