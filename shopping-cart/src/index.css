@@ -201,3 +201,40 @@ border: .1rem solid  #c0c0c0;
    padding: 1rem;
    cursor: pointer;
  }
+
+ /* Modal */
+ Modal{
+   position: relative;
+ }
+ .close-modal{
+   position: absolute;
+   right: 1rem;
+   top:1rem;
+ }
+
+ .product-details{
+   display: flex;
+   justify-content: space-between;
+ }
+ .product-details img{
+   width: 40%;
+ }
+ .product-detail-description{
+   width: 55%;
+ }
+ .product-detail-description .button{
+   padding: 1rem;
+ }
+ .product-price{
+   display: flex;
+   width: 100%;
+   justify-content: space-around;
+ }
+ .product-price >div{
+   flex:1;
+   margin-left: 2rem;
+ }
+ .product-price button{
+   padding: 1rem;
+   flex:1;
+ }
