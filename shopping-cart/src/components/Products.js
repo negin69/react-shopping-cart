@@ -3,6 +3,8 @@ import formatCurrency from '../util'
 import Fade from 'react-reveal'
 import Zoom  from 'react-reveal/Zoom';
 import Modal from 'react-modal';
+import {connect} from "react-redux";
+import { fetchProducts } from './../actions/productActions';
 
 class Products extends React.Component {
 state = {
@@ -21,22 +23,28 @@ closeModal = () => {
         return (
         <div>
             <Fade bottom cascade>
-        <ul className="products">
-            {this.props.products.map((product) => (<li key={product._id}> 
-            <div className="product">
-                <a href="#" onClick= {() =>this.openModal(product)}>
-                    <img src={product.image} alt={product.title} />
-                    <p>{product.title}</p>
-                </a>
-                <div className="product-price">
-                   <div>{formatCurrency(product.price)}</div>
-                   <button className="button primary" onClick = {() => this.props.addToCart(product)}>
-                       Add To Cart
-                   </button>
-                </div>
-            </div>
-            </li>))}
-        </ul>
+                {!this.props.products ?
+                  (<div>Loading...</div>)
+                  : (
+                    <ul className="products">
+                    {this.props.products.map((product) => (<li key={product._id}> 
+                    <div className="product">
+                        <a href="#" onClick= {() =>this.openModal(product)}>
+                            <img src={product.image} alt={product.title} />
+                            <p>{product.title}</p>
+                        </a>
+                        <div className="product-price">
+                           <div>{formatCurrency(product.price)}</div>
+                           <button className="button primary" onClick = {() => this.props.addToCart(product)}>
+                               Add To Cart
+                           </button>
+                        </div>
+                    </div>
+                    </li>))}
+                </ul>
+                  )
+                }
+
         </Fade>
 
         {
@@ -81,4 +89,4 @@ closeModal = () => {
     }
 }
 
-export default Products;
+export default connect((state) => ({products : state.products.items}) , fetchProducts)(Products);
