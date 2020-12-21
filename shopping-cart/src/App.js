@@ -1,48 +1,47 @@
 import React from "react";
-import data from"../src/data.json";
+// import data from"../src/data.json";
 import Cart from "./components/Cart";
 import Filter from "./components/Filter";
 import Products from "./components/Products";
 import {Provider} from "react-redux";
 import store from './store';
 class App extends React.Component{
-  constructor(){
-    super();
-    this.state ={
-      products : data.products ,
-      cartItems : localStorage.getItem("cartItems") ?  JSON.parse( localStorage.getItem("cartItems")) : [ ]
-      // , size: "",
-      // sort:"",
-    }; 
-  }
+  // constructor(){
+  //   super();
+  //   this.state ={
+  //     products : data.products ,
+  //     cartItems : localStorage.getItem("cartItems") ?  JSON.parse( localStorage.getItem("cartItems")) : [ ]
+  //     , size: "",
+  //     sort:"",
+  //   }; 
+  // }
 
-  alertOrder = (myorder)=> {
-    alert("Need to save order for" +myorder.name)
-  }
-  removeFromCart = (product) =>{
-    const cartItems= this.state.cartItems.slice();
-   let filteredItem= cartItems.filter(x => x._id !== product._id);
-   this.setState({cartItems : filteredItem});
-   localStorage.setItem("cartItems" , JSON.stringify(filteredItem));
-  }
-  addToCart = (product) =>{
-    // const cartItems = [...this.state.cartItems]
-    const cartItems= this.state.cartItems.slice();
-    let  alreadyInCart = false;
+  // alertOrder = (myorder)=> {
+  //   alert("Need to save order for" +myorder.name)
+  // }
+//   removeFromCart = (product) =>{
+//     const cartItems= this.state.cartItems.slice();
+//    let filteredItem= cartItems.filter(x => x._id !== product._id);
+//    this.setState({cartItems : filteredItem});
+//    localStorage.setItem("cartItems" , JSON.stringify(filteredItem));
+//   }
+//   addToCart = (product) =>{
+//     const cartItems= this.state.cartItems.slice();
+//     let  alreadyInCart = false;
 
-    cartItems.forEach((item) =>{
-      if(item._id === product._id){
-      item.count++;
-      alreadyInCart = true;
-      }
-    });
+//     cartItems.forEach((item) =>{
+//       if(item._id === product._id){
+//       item.count++;
+//       alreadyInCart = true;
+//       }
+//     });
 
-    if(!alreadyInCart){
-      cartItems.push({...product , count : 1})
-    }
-  this.setState({cartItems});
-  localStorage.setItem("cartItems" , JSON.stringify(cartItems));
-}
+//     if(!alreadyInCart){
+//       cartItems.push({...product , count : 1})
+//     }
+//   this.setState({cartItems});
+//   localStorage.setItem("cartItems" , JSON.stringify(cartItems));
+// }
 
 //   filterProducts =(event )  =>{
 // console.log(event.target.value);
@@ -84,10 +83,10 @@ render(){
           {/* <Filter count={this.state.products.length} sort={this.state.sort} size={this.state.size} filterProducts={this.filterProducts} sortProducts={this.sortProducts}/>
          <Products products={this.state.products}  addToCart={this.addToCart}/> */}
          <Filter />
-         <Products  addToCart={this.addToCart}/>
+         <Products />
         </div>
         <div className="sidebar">
-         <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} alertOrder ={this.alertOrder} />
+         <Cart />
         </div>
       </div>
       </main>

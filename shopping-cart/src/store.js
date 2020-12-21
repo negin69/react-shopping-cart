@@ -21,10 +21,11 @@
 import { createStore, applyMiddleware, compose , combineReducers} from "redux";
 import thunk from "redux-thunk";
 import {  productsReducer} from "./reducers/productReducers";
+import { cartReducer} from './reducers/cartReducers';
 const initialState = {};
 export const store = createStore(
   combineReducers({
-         products:  productsReducer,     
+         products:  productsReducer, cart : cartReducer  
      }),
    initialState,
     compose(
