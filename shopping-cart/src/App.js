@@ -5,7 +5,7 @@ import Filter from "./components/Filter";
 import Products from "./components/Products";
 import {Provider} from "react-redux";
 import store from './store';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 class App extends React.Component{
   // constructor(){
   //   super();
