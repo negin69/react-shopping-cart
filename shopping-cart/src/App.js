@@ -5,6 +5,7 @@ import Filter from "./components/Filter";
 import Products from "./components/Products";
 import {Provider} from "react-redux";
 import store from './store';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 class App extends React.Component{
   // constructor(){
   //   super();
@@ -73,9 +74,10 @@ class App extends React.Component{
 render(){
   return (
     <Provider store={store}>
+      <BrowserRouter>
     <div className="App">
       <header>
-       <a href="/">React Shopping Cart</a>
+      <Link to="/">React Shopping Cart</Link>
       </header>
       <main>
       <div className="content">
@@ -95,6 +97,7 @@ render(){
         <p>all things are reserved</p>
       </footer>
     </div>
+    </BrowserRouter>
     </Provider>
   );
 }
